@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecostep</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
+}
+
+header {
+    background: #0047AB;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: 140px;
+}
+
+.logo-ecostep {
+    height: 100%;
+    max-height: 140px;
+    width: auto;
+    object-fit: contain;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-weight: 600;
+    transition: color 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+#toggleTheme {
+    margin-left: 0.5rem;
+    background: #fff;
+    color: #0047AB;
+    border: none;
+    padding: 0.4rem 0.7rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+#toggleTheme:hover {
+    transform: scale(1.05);
+}
+
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    text-align: left;
+}
+
+.container h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #4086cc;
+    margin-bottom: 0.5rem;
+}
+
+.container p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 0.5rem 0;
+    text-align: justify;
+}
+
+footer {
+    background: #d9d9d9;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+.section-block {
+    margin-bottom: 3rem;
+    padding: 1rem 1.5rem;
+    border-left: 5px solid #0066CC;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: background 0.3s, color 0.3s;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dark-theme {
+    background: #121212;
+    color: #f0f0f0;
+}
+
+.dark-theme header {
+    background: #1f1f1f;
+}
+
+.dark-theme footer {
+    background: #2c2c2c;
+}
+
+.dark-theme .section-block {
+    background: #1f1f1f;
+    border-left-color: #4086cc;
+}
+
+.dark-theme nav a {
+    color: #f0f0f0;
+}
+
+.dark-theme .container h1 {
+    color: #90caf9;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    nav {
+        margin-top: 0.5rem;
+    }
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    background: #d9d9d9;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <a href="inicio.html" class="logo-container">
+            <img src="Logo.png" alt="Logo Ecostep" class="logo-ecostep">
+        </a>
+        <nav>
+            <a href="inicio.html">Início</a>
+            <a href="cadastro.html">Cadastro</a>
+            <a href="login.html">Login</a>
+            <button id="toggleTheme">🌙</button>
+        </nav>
+    </header>
+
+    <section class="container" id="inicio">
+        <h1>Bem-vindo ao Ecostep</h1>
+        <p>O Ecostep é uma plataforma que busca transformar pequenas atitudes em grandes impactos positivos para o meio ambiente, incentivando hábitos sustentáveis de forma prática e recompensadora no dia a dia.</p>
+    </section>
+
+    <section class="container section-block" id="missao">
+        <h1>Missão</h1>
+        <p>Nossa missão é conscientizar e capacitar pessoas para a adoção de práticas sustentáveis em seu cotidiano, utilizando educação ambiental, monitoramento de impacto e sistemas de recompensas para engajar a sociedade em ações alinhadas aos Objetivos de Desenvolvimento Sustentável e à preservação dos recursos naturais.</p>
+    </section>
+
+    <section class="container section-block" id="visao">
+        <h1>Visão</h1>
+        <p>Queremos ser reconhecidos como a principal plataforma de incentivo a hábitos sustentáveis no Brasil, engajando comunidades e indivíduos por meio de tecnologia, gamificação e educação ambiental para promover mudanças significativas em prol de um planeta mais equilibrado e saudável.</p>
+    </section>
+
+    <section class="container section-block" id="valores">
+        <h1>Valores</h1>
+        <p>Nossos valores são pautados pela sustentabilidade como guia de todas as ações, transparência em nossas práticas, compromisso firme com a educação ambiental e a conscientização, além de inovação para tornar o cuidado com o meio ambiente acessível e prático, sempre com responsabilidade social e ética.</p>
+    </section>
+
+    <footer>
+        © Ecostep 2025 - Todos os direitos reservados - v0.0.8
+    </footer>
+
+<script>
+// Animação de entrada nas seções
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.section-block, .container').forEach(el => {
+    el.classList.add('hidden');
+    observer.observe(el);
+});
+
+// Sistema de tema claro/escuro
+const toggleButton = document.getElementById('toggleTheme');
+const currentTheme = localStorage.getItem("theme");
+
+if (currentTheme === "dark") {
+    document.body.classList.add("dark-theme");
+    toggleButton.textContent = "☀️";
+} else {
+    document.body.classList.remove("dark-theme");
+    toggleButton.textContent = "🌙";
+}
+
+toggleButton.addEventListener("click", function () {
+    document.body.classList.toggle("dark-theme");
+    let theme = "light";
+    if (document.body.classList.contains("dark-theme")) {
+        theme = "dark";
+        toggleButton.textContent = "☀️";
+    } else {
+        toggleButton.textContent = "🌙";
+    }
+    localStorage.setItem("theme", theme);
+});
+</script>
+</body>
+</html>

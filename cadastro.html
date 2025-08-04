@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cadastro - Ecostep</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
+}
+header {
+    background: #0047AB;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: 140px;
+}
+.logo-ecostep {
+    height: 100%;
+    max-height: 140px;
+    width: auto;
+    object-fit: contain;
+}
+nav a, #toggleTheme {
+    color: white;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    transition: color 0.3s, transform 0.2s;
+}
+nav a:hover, #toggleTheme:hover {
+    transform: scale(1.05);
+    text-decoration: underline;
+}
+main {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: background 0.3s;
+}
+main h2 {
+    text-align: center;
+    color: #0066CC;
+    font-weight: 800;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+label {
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+button {
+    background: #0047AB;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+button:hover {
+    background: #003a8c;
+    transform: scale(1.05);
+}
+#mensagem {
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+footer {
+    background: #d9d9d9;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.dark-theme {
+    background: #121212;
+    color: #f0f0f0;
+}
+.dark-theme header {
+    background: #1f1f1f;
+}
+.dark-theme footer {
+    background: #2c2c2c;
+}
+.dark-theme main {
+    background: #1f1f1f;
+}
+.dark-theme nav a, .dark-theme #toggleTheme {
+    color: #f0f0f0;
+}
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    nav {
+        margin-top: 0.5rem;
+    }
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    background: #d9d9d9;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+</style>
+</head>
+<body>
+<header>
+    <a href="inicio.html" class="logo-container">
+        <img src="Logo.png" alt="Logo Ecostep" class="logo-ecostep">
+    </a>
+    <nav>
+        <a href="inicio.html">Início</a>
+        <a href="cadastro.html">Cadastro</a>
+        <a href="login.html">Login</a>
+        <button id="toggleTheme">🌙</button>
+    </nav>
+</header>
+
+<main>
+    <h2>Cadastro</h2>
+    <form id="formCadastro">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required minlength="6">
+
+        <button type="submit">Cadastrar</button>
+    </form>
+    <div id="mensagem"></div>
+</main>
+
+<footer>
+    © Ecostep 2025 - Todos os direitos reservados - v0.0.8
+</footer>
+
+<script>
+// Animação suave ao rolar
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('main, header, footer').forEach(el => {
+    el.classList.add('hidden');
+    observer.observe(el);
+});
+
+// Tema claro/escuro persistente
+const toggleButton = document.getElementById('toggleTheme');
+const currentTheme = localStorage.getItem("theme");
+
+if (currentTheme === "dark") {
+    document.body.classList.add("dark-theme");
+    toggleButton.textContent = "☀️";
+} else {
+    toggleButton.textContent = "🌙";
+}
+
+toggleButton.addEventListener("click", function () {
+    document.body.classList.toggle("dark-theme");
+    let theme = "light";
+    if (document.body.classList.contains("dark-theme")) {
+        theme = "dark";
+        toggleButton.textContent = "☀️";
+    } else {
+        toggleButton.textContent = "🌙";
+    }
+    localStorage.setItem("theme", theme);
+});
+</script>
+
+<script type="module">
+// Cadastro com Supabase
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+const SUPABASE_URL = "https://ahqboswfnwgqjpysxsok.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFocWJvc3dmbndncWpweXN4c29rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE5MjcxODAsImV4cCI6MjA2NzUwMzE4MH0.i6j5a_VtTasCYilzLhi2BYZYemKhOWeoeVL2PKDLmnw";
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const formCadastro = document.getElementById('formCadastro');
+const mensagem = document.getElementById('mensagem');
+
+formCadastro.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const senha = document.getElementById('senha').value.trim();
+
+    mensagem.innerText = "Processando cadastro...";
+
+    const { error: signUpError } = await supabase.auth.signUp({
+        email: email,
+        password: senha
+    });
+
+    if (signUpError) {
+        mensagem.innerText = `Erro ao cadastrar: ${signUpError.message}`;
+        return;
+    }
+
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: senha
+    });
+
+    if (signInError) {
+        mensagem.innerText = `Erro ao logar após cadastro: ${signInError.message}`;
+        return;
+    }
+
+    const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+
+    if (sessionError || !sessionData.session) {
+        mensagem.innerText = `Erro ao obter sessão: ${sessionError?.message || "Sessão não encontrada."}`;
+        return;
+    }
+
+    const user_id = sessionData.session.user.id;
+
+    const { error: insertError } = await supabase
+        .from('usuarios')
+        .insert([{ nome: nome, email: email, user_id: user_id }]);
+
+    if (insertError) {
+        mensagem.innerText = `Cadastro realizado, mas erro ao salvar no banco: ${insertError.message}`;
+    } else {
+        mensagem.innerText = "Cadastro realizado com sucesso! Redirecionando...";
+        setTimeout(() => {
+            window.location.href = "inicio.html";
+        }, 1500);
+    }
+});
+</script>
+</body>
+</html>
