@@ -1,0 +1,1 @@
+O Ecostep é um projeto em desenvolvimento que explora o uso de tecnologia para incentivar práticas sustentáveis. Algumas funcionalidades, como autenticação de usuários, ainda estão passando por ajustes e podem apresentar problemas na versão atual.
