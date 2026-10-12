@@ -5,84 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loja - Ecostep</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js');</script>
 <style>
-/* ======== Base ======== */
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: #fff;
-    color: #333;
-    transition: background 0.3s, color 0.3s;
-}
-html, body {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* ======== Header ======== */
-header {
-    background: #0047AB;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    flex-wrap: wrap;
-}
-.logo-container {
-    display: flex;
-    align-items: center;
-    height: 120px;
-}
-.logo-ecostep {
-    height: 100%;
-    width: auto;
-    object-fit: contain;
-}
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 0.5rem;
-    font-weight: 600;
-    transition: transform 0.2s;
-}
-nav a:hover {
-    text-decoration: underline;
-    transform: scale(1.05);
-}
-#toggleTheme {
-    margin-left: 0.5rem;
-    background: #fff;
-    color: #0047AB;
-    border: none;
-    padding: 0.4rem 0.7rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: transform 0.2s;
-}
-#toggleTheme:hover { transform: scale(1.05); }
-
-/* ======== Conteúdo ======== */
-main { flex: 1; }
-.container {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-.container h1 {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #4086cc;
-    margin-bottom: 0.5rem;
-}
-.container p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    text-align: justify;
-}
-
 /* ======== Produtos ======== */
 .products-grid {
     display: grid;
@@ -95,7 +20,7 @@ main { flex: 1; }
     padding: 1rem;
     text-align: center;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
 }
 .product-card:hover {
     transform: translateY(-5px);
@@ -108,7 +33,7 @@ main { flex: 1; }
     margin-bottom: 0.5rem;
 }
 .product-card h3 { color: #0047AB; margin: 0.5rem 0; }
-.product-card button {
+.product-card button, .product-card .btn-comprar {
     background: #0047AB;
     color: #fff;
     border: none;
@@ -116,49 +41,25 @@ main { flex: 1; }
     border-radius: 5px;
     cursor: pointer;
     font-weight: 600;
+    font-family: inherit;
+    font-size: 1rem;
+    display: inline-block;
     margin-top: 0.5rem;
+    text-decoration: none;
     transition: transform 0.2s, background 0.3s;
 }
-.product-card button:hover {
+.product-card button:hover, .product-card .btn-comprar:hover {
     background: #0066cc;
     transform: scale(1.05);
 }
 
-footer {
-    background: #d9d9d9;
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-}
-
-/* ======== Animações ======== */
-.hidden {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ======== Tema escuro ======== */
-.dark-theme { background: #121212; color: #f0f0f0; }
-.dark-theme header { background: #1f1f1f; }
-.dark-theme footer { background: #2c2c2c; }
-.dark-theme .product-card { background: #1f1f1f; }
-.dark-theme .container h1 { color: #90caf9; }
-.dark-theme nav a { color: #f0f0f0; }
-
-/* ======== Mobile ======== */
-@media (max-width: 600px) {
-    header { flex-direction: column; text-align: center; }
-    nav { margin-top: 0.5rem; }
+.dark-theme .product-card {
+    background: #1f1f1f;
 }
 </style>
 </head>
 <body>
-<header>
+<header class="reveal">
     <a href="index.html" class="logo-container">
         <img src="Logo.png" alt="Logo Ecostep" class="logo-ecostep">
     </a>
@@ -167,11 +68,11 @@ footer {
         <a href="store.html">Loja</a>
         <a href="cadastro.html">Cadastro</a>
         <a href="login.html">Login</a>
-        <button id="toggleTheme">🌙</button>
+        <button id="toggleTheme" aria-label="Ativar tema escuro">🌙</button>
     </nav>
 </header>
 
-<main class="container">
+<main class="container reveal">
     <h1>Nossa Loja</h1>
     <p>Confira nosso produto sustentável e faça a diferença no seu dia a dia!</p>
 
@@ -179,45 +80,18 @@ footer {
         <div class="product-card">
             <img src="produto1.jpg" alt="Produto 1">
             <h3>Produto 1</h3>
-            <p><!-- Descrição rápida do produto --></p>
+            <p>Descrição do produto sustentável.</p>
             <p>R$ xx,xx</p>
-            <a href="Link" target="_blank">
-                <button>Comprar</button>
-            </a>
+            <!-- Troque o href pelo link real de compra (ex.: Mercado Livre, Pagar.me, etc.) -->
+            <a class="btn-comprar" href="#" target="_blank" rel="noopener">Comprar</a>
         </div>
     </div>
 </main>
 
-<footer>
+<footer class="reveal">
     © Ecostep 2025 - v0.1
 </footer>
 
-<script>
-// Animação ao rolar
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting) entry.target.classList.add('show');
-    });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.container, .product-card').forEach(el => {
-    el.classList.add('hidden');
-    observer.observe(el);
-});
-
-// Tema claro/escuro
-const toggleButton = document.getElementById('toggleTheme');
-if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-theme");
-    toggleButton.textContent = "☀️";
-}
-toggleButton.addEventListener("click", () => {
-    document.body.classList.toggle("dark-theme");
-    const isDark = document.body.classList.contains("dark-theme");
-    toggleButton.textContent = isDark ? "☀️" : "🌙";
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-});
-</script>
+<script src="script.js"></script>
 </body>
-
 </html>

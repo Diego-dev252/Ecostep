@@ -1,0 +1,221 @@
+/* ============================================================
+   Ecostep - estilos compartilhados entre as páginas
+   ============================================================ */
+
+/* ======== Base ======== */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* ======== Header ======== */
+header {
+    background: #0047AB;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: 140px;
+}
+
+.logo-ecostep {
+    height: 100%;
+    max-height: 140px;
+    width: auto;
+    object-fit: contain;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-weight: 600;
+    transition: color 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+#toggleTheme {
+    margin-left: 0.5rem;
+    background: #fff;
+    color: #0047AB;
+    border: none;
+    padding: 0.4rem 0.7rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+#toggleTheme:hover {
+    transform: scale(1.05);
+}
+
+/* ======== Conteúdo ======== */
+main {
+    flex: 1;
+}
+
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.container h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #4086cc;
+    margin-bottom: 0.5rem;
+}
+
+.container p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 0.5rem 0;
+    text-align: justify;
+}
+
+/* ======== Card de formulário (login / cadastro) ======== */
+.card {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: background 0.3s;
+}
+
+.card h2 {
+    text-align: center;
+    color: #0066CC;
+    font-weight: 800;
+}
+
+.card form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.card label {
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.card input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.card button {
+    background: #0047AB;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.card button:hover {
+    background: #003a8c;
+    transform: scale(1.05);
+}
+
+#mensagem {
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ======== Rodapé ======== */
+footer {
+    background: #d9d9d9;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+/* ======== Animação de entrada ======== */
+.js .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ======== Tema escuro ======== */
+.dark-theme {
+    background: #121212;
+    color: #f0f0f0;
+}
+
+.dark-theme header {
+    background: #1f1f1f;
+}
+
+.dark-theme footer {
+    background: #2c2c2c;
+}
+
+.dark-theme .card {
+    background: #1f1f1f;
+}
+
+.dark-theme .container h1 {
+    color: #90caf9;
+}
+
+.dark-theme nav a {
+    color: #f0f0f0;
+}
+
+/* ======== Acessibilidade: respeita redução de movimento ======== */
+@media (prefers-reduced-motion: reduce) {
+    .js .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* ======== Mobile ======== */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    nav {
+        margin-top: 0.5rem;
+    }
+}
