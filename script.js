@@ -3,8 +3,7 @@
    ============================================================ */
 
 // Animação de entrada: revela os elementos com a classe "reveal"
-// conforme eles entram na viewport. (A classe "js" é adicionada
-// no <head>, então sem JavaScript o conteúdo fica sempre visível.)
+// conforme eles entram na viewport.
 (function () {
     const elementos = document.querySelectorAll('.reveal');
 
