@@ -1,8 +1,3 @@
-/* ============================================================
-   Ecostep - cliente Supabase compartilhado
-   (a chave anon é pública por design; o acesso aos dados é
-   controlado pelas regras de RLS no Supabase)
-   ============================================================ */
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
 const SUPABASE_URL = "https://ahqboswfnwgqjpysxsok.supabase.co";
