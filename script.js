@@ -1,7 +1,3 @@
-/* ============================================================
-   Ecostep - script compartilhado (animações + tema)
-   ============================================================ */
-
 // Animação de entrada: revela os elementos com a classe "reveal"
 // conforme eles entram na viewport.
 (function () {
