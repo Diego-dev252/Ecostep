@@ -18,13 +18,7 @@ O Ecostep é um projeto em desenvolvimento que explora o uso de tecnologia para 
 
 ## Como rodar
 
-É um site estático. Basta servir a pasta com qualquer servidor de arquivos, por exemplo:
-
-```bash
-python3 -m http.server 3000
-```
-
-E abrir `http://localhost:3000`.
+É só acessar o link: https://diego-dev252.github.io/Ecostep/.
 
 ## Autenticação
 
