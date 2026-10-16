@@ -1,109 +1,158 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loja - Ecostep</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=mobile-20261016b">
-<script>document.documentElement.classList.add('js');</script>
-<style>
-/* ======== Produtos ======== */
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-}
-.product-card {
-    background: #f3f4f6;
-    border: 1px solid #e1e4e8;
-    border-radius: 8px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
-    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
-}
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-.product-card img {
-    width: 100%;
-    max-height: 180px;
-    object-fit: contain;
-    margin-bottom: 0.5rem;
-}
-.product-card h3 { color: #0047AB; margin: 0.5rem 0; }
-.product-card button, .product-card .btn-comprar {
-    background: #0047AB;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    font-family: inherit;
-    font-size: 1rem;
-    display: inline-block;
-    margin-top: 0.5rem;
-    text-decoration: none;
-    transition: transform 0.2s, background 0.3s;
-}
-.product-card button:hover, .product-card .btn-comprar:hover {
-    background: #0066cc;
-    transform: scale(1.05);
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loja - Ecostep</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css?v=mobile-20261016b" />
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+    <style>
+      /* ======== Produtos ======== */
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+      }
+      .product-card {
+        background: #f3f4f6;
+        border: 1px solid #e1e4e8;
+        border-radius: 8px;
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s,
+          background 0.3s;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .product-card img {
+        width: 100%;
+        max-height: 180px;
+        object-fit: contain;
+        margin-bottom: 0.5rem;
+      }
+      .product-card h3 {
+        color: #0047ab;
+        margin: 0.5rem 0;
+      }
+      .product-card button,
+      .product-card .btn-comprar {
+        background: #0047ab;
+        color: #fff;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        font-family: inherit;
+        font-size: 1rem;
+        display: inline-block;
+        margin-top: 0.5rem;
+        text-decoration: none;
+        transition:
+          transform 0.2s,
+          background 0.3s;
+      }
+      .product-card button:hover,
+      .product-card .btn-comprar:hover {
+        background: #0066cc;
+        transform: scale(1.05);
+      }
 
-.dark-theme .product-card {
-    background: #1f1f1f;
-    border-color: #373737;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.30);
-}
-</style>
-</head>
-<body>
-<header class="reveal">
-    <a href="index.html" class="logo-container">
-        <img src="Logo.png" alt="Logo Ecostep" class="logo-ecostep">
-    </a>
-    <nav>
+      .dark-theme .product-card {
+        background: #1f1f1f;
+        border-color: #373737;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="reveal">
+      <a href="index.html" class="logo-container">
+        <img src="Logo.png" alt="Logo Ecostep" class="logo-ecostep" />
+      </a>
+      <nav>
         <a href="index.html">Início</a>
         <a href="store.html">Loja</a>
         <a href="login.html">Login</a>
         <button id="toggleTheme" aria-label="Ativar tema escuro">🌙</button>
         <div class="profile-control">
-            <button id="profileToggle" class="profile-toggle" type="button" aria-label="Abrir perfil e configurações" aria-haspopup="dialog" aria-expanded="false" aria-controls="profilePanel"><span class="profile-avatar" id="profileAvatar" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span></button>
-            <section id="profilePanel" class="profile-panel" role="dialog" aria-label="Perfil e configurações" hidden>
-                <div class="profile-summary"><span class="profile-avatar profile-avatar-large" id="profilePanelAvatar" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><div><strong id="profileName">Visitante</strong><span id="profileEmail">Entre para ver sua conta</span></div></div>
-                <a class="profile-edit-link" id="profileEditLink" href="configuracoes.html" hidden>Configurações</a>
-                <a class="profile-login" id="profileLogin" href="login.html">Entrar na conta</a>
-                <button class="profile-signout" id="profileSignout" type="button" hidden>Sair da conta</button>
-            </section>
+          <button
+            id="profileToggle"
+            class="profile-toggle"
+            type="button"
+            aria-label="Abrir perfil e configurações"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="profilePanel"
+          >
+            <span class="profile-avatar" id="profileAvatar" aria-hidden="true"
+              ><svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21a8 8 0 0 1 16 0" /></svg
+            ></span>
+          </button>
+          <section
+            id="profilePanel"
+            class="profile-panel"
+            role="dialog"
+            aria-label="Perfil e configurações"
+            hidden
+          >
+            <div class="profile-summary">
+              <span
+                class="profile-avatar profile-avatar-large"
+                id="profilePanelAvatar"
+                aria-hidden="true"
+                ><svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21a8 8 0 0 1 16 0" /></svg
+              ></span>
+              <div>
+                <strong id="profileName">Visitante</strong
+                ><span id="profileEmail">Entre para ver sua conta</span>
+              </div>
+            </div>
+            <a class="profile-edit-link" id="profileEditLink" href="configuracoes.html" hidden
+              >Configurações</a
+            >
+            <a class="profile-login" id="profileLogin" href="login.html">Entrar na conta</a>
+            <button class="profile-signout" id="profileSignout" type="button" hidden>
+              Sair da conta
+            </button>
+          </section>
         </div>
-    </nav>
-</header>
+      </nav>
+    </header>
 
-<main class="container reveal">
-    <h1>Nossa Loja</h1>
-    <p>Confira nosso produto sustentável e faça a diferença no seu dia a dia!</p>
+    <main class="container reveal">
+      <h1>Nossa Loja</h1>
+      <p>Confira nosso produto sustentável e faça a diferença no seu dia a dia!</p>
 
-    <div class="products-grid">
+      <div class="products-grid">
         <div class="product-card">
-            <img src="produto1.jpg" alt="Produto 1">
-            <h3>Produto 1</h3>
-            <p>Descrição do produto sustentável.</p>
-            <p>R$ xx,xx</p>
-            <a class="btn-comprar" href="#" target="_blank" rel="noopener">Comprar</a>
+          <img src="produto1.jpg" alt="Produto 1" />
+          <h3>Produto 1</h3>
+          <p>Descrição do produto sustentável.</p>
+          <p>R$ xx,xx</p>
+          <a class="btn-comprar" href="#" target="_blank" rel="noopener">Comprar</a>
         </div>
-    </div>
-</main>
+      </div>
+    </main>
 
-<footer class="reveal">
-    © Ecostep 2025 - v0.1
-</footer>
+    <footer class="reveal">© Ecostep 2025 - v0.1</footer>
 
-<script src="script.js"></script>
-<script type="module" src="profile-menu.js"></script>
-</body>
+    <script src="script.js"></script>
+    <script type="module" src="profile-menu.js"></script>
+  </body>
 </html>
-

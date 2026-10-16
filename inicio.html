@@ -1,81 +1,130 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Início - Ecostep</title>
-  <link rel="stylesheet" href="style.css?v=mobile-20261016b">
-  <script>document.documentElement.classList.add('js');</script>
-</head>
-<body>
-  <header><a class="brand" href="index.html">Ecostep</a><nav aria-label="Navegação principal">
-    <a href="index.html">Início</a><a href="store.html">Loja</a><a href="login.html">Login</a>
-    <button id="toggleTheme" type="button" aria-label="Ativar tema escuro">🌙</button>
-    <div class="profile-control">
-      <button id="profileToggle" class="profile-toggle" type="button" aria-label="Abrir perfil e configurações" aria-haspopup="dialog" aria-expanded="false" aria-controls="profilePanel"><span class="profile-avatar" id="profileAvatar" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span></button>
-      <section id="profilePanel" class="profile-panel" role="dialog" aria-label="Perfil e configurações" hidden>
-        <div class="profile-summary"><span class="profile-avatar profile-avatar-large" id="profilePanelAvatar" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><div><strong id="profileName">Visitante</strong><span id="profileEmail">Entre para ver sua conta</span></div></div>
-        <a class="profile-edit-link" id="profileEditLink" href="configuracoes.html" hidden>Configurações</a>
-        <a class="profile-login" id="profileLogin" href="login.html">Entrar na conta</a>
-        <button class="profile-signout" id="profileSignout" type="button" hidden>Sair da conta</button>
-      </section>
-    </div>
-  </nav></header>
-  <main class="card welcome-card">
-    <div class="welcome-icon" aria-hidden="true">🌱</div>
-    <p class="welcome-eyebrow">SUA ÁREA ECOSTEP</p>
-    <h1>Bem-vindo ao Ecostep!</h1>
-    <p class="welcome-lead">Que bom ter você por aqui. Continue sua jornada sustentável com a gente.</p>
-    <div id="status" class="account-status" role="status" aria-live="polite">
-      <span class="account-label">Sua conta</span>
-      <strong class="account-email">Verificando sessão…</strong>
-    </div>
-    <p class="welcome-copy">Explore a loja e descubra novas formas de ajudar o planeta.</p>
-    <div class="welcome-actions">
-      <a class="welcome-primary" href="store.html">Explorar a loja <span aria-hidden="true">→</span></a>
-      <button id="btnSair" class="welcome-secondary" type="button">Sair da conta</button>
-    </div>
-  </main>
-  <footer>© Ecostep 2025 - v0.1</footer>
-  <script src="script.js"></script>
-  <script type="module" src="profile-menu.js"></script>
-  <script type="module">
-    import { supabase } from './supabase.js';
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Início - Ecostep</title>
+    <link rel="stylesheet" href="style.css?v=mobile-20261016b" />
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="index.html">Ecostep</a>
+      <nav aria-label="Navegação principal">
+        <a href="index.html">Início</a><a href="store.html">Loja</a><a href="login.html">Login</a>
+        <button id="toggleTheme" type="button" aria-label="Ativar tema escuro">🌙</button>
+        <div class="profile-control">
+          <button
+            id="profileToggle"
+            class="profile-toggle"
+            type="button"
+            aria-label="Abrir perfil e configurações"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="profilePanel"
+          >
+            <span class="profile-avatar" id="profileAvatar" aria-hidden="true"
+              ><svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21a8 8 0 0 1 16 0" /></svg
+            ></span>
+          </button>
+          <section
+            id="profilePanel"
+            class="profile-panel"
+            role="dialog"
+            aria-label="Perfil e configurações"
+            hidden
+          >
+            <div class="profile-summary">
+              <span
+                class="profile-avatar profile-avatar-large"
+                id="profilePanelAvatar"
+                aria-hidden="true"
+                ><svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21a8 8 0 0 1 16 0" /></svg
+              ></span>
+              <div>
+                <strong id="profileName">Visitante</strong
+                ><span id="profileEmail">Entre para ver sua conta</span>
+              </div>
+            </div>
+            <a class="profile-edit-link" id="profileEditLink" href="configuracoes.html" hidden
+              >Configurações</a
+            >
+            <a class="profile-login" id="profileLogin" href="login.html">Entrar na conta</a>
+            <button class="profile-signout" id="profileSignout" type="button" hidden>
+              Sair da conta
+            </button>
+          </section>
+        </div>
+      </nav>
+    </header>
+    <main class="card welcome-card">
+      <div class="welcome-icon" aria-hidden="true">🌱</div>
+      <p class="welcome-eyebrow">SUA ÁREA ECOSTEP</p>
+      <h1>Bem-vindo ao Ecostep!</h1>
+      <p class="welcome-lead">
+        Que bom ter você por aqui. Continue sua jornada sustentável com a gente.
+      </p>
+      <div id="status" class="account-status" role="status" aria-live="polite">
+        <span class="account-label">Sua conta</span>
+        <strong class="account-email">Verificando sessão…</strong>
+      </div>
+      <p class="welcome-copy">Explore a loja e descubra novas formas de ajudar o planeta.</p>
+      <div class="welcome-actions">
+        <a class="welcome-primary" href="store.html"
+          >Explorar a loja <span aria-hidden="true">→</span></a
+        >
+        <button id="btnSair" class="welcome-secondary" type="button">Sair da conta</button>
+      </div>
+    </main>
+    <footer>© Ecostep 2025 - v0.1</footer>
+    <script src="script.js"></script>
+    <script type="module" src="profile-menu.js"></script>
+    <script type="module">
+      import { supabase } from './supabase.js';
 
-    const status = document.getElementById('status');
-    const accountLabel = status.querySelector('.account-label');
-    const accountEmail = status.querySelector('.account-email');
-    const signOut = document.getElementById('btnSair');
+      const status = document.getElementById('status');
+      const accountLabel = status.querySelector('.account-label');
+      const accountEmail = status.querySelector('.account-email');
+      const signOut = document.getElementById('btnSair');
 
-    try {
-      const { data: { user }, error } = await supabase.auth.getUser();
-      if (error) throw error;
-      if (!user) {
-        window.location.replace('login.html');
-      } else {
-        accountLabel.textContent = 'Conectado como';
-        accountEmail.textContent = user.email;
-      }
-    } catch (error) {
-      console.error('Falha ao verificar a sessão:', error);
-      accountLabel.textContent = 'Sessão indisponível';
-      accountEmail.textContent = 'Entre novamente para acessar sua conta.';
-      window.location.replace('login.html');
-    }
-
-    signOut.addEventListener('click', async () => {
-      signOut.disabled = true;
       try {
-        const { error } = await supabase.auth.signOut();
+        const {
+          data: { user },
+          error,
+        } = await supabase.auth.getUser();
         if (error) throw error;
-        window.location.replace('index.html');
+        if (!user) {
+          window.location.replace('login.html');
+        } else {
+          accountLabel.textContent = 'Conectado como';
+          accountEmail.textContent = user.email;
+        }
       } catch (error) {
-        console.error('Falha ao sair:', error);
-        status.textContent = 'Não foi possível encerrar a sessão. Tente novamente.';
-        signOut.disabled = false;
+        console.error('Falha ao verificar a sessão:', error);
+        accountLabel.textContent = 'Sessão indisponível';
+        accountEmail.textContent = 'Entre novamente para acessar sua conta.';
+        window.location.replace('login.html');
       }
-    });
-  </script>
-</body>
+
+      signOut.addEventListener('click', async () => {
+        signOut.disabled = true;
+        try {
+          const { error } = await supabase.auth.signOut();
+          if (error) throw error;
+          window.location.replace('index.html');
+        } catch (error) {
+          console.error('Falha ao sair:', error);
+          status.textContent = 'Não foi possível encerrar a sessão. Tente novamente.';
+          signOut.disabled = false;
+        }
+      });
+    </script>
+  </body>
 </html>

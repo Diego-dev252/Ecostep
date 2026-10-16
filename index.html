@@ -1,80 +1,141 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ecostep</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=mobile-20261016b">
-<script>document.documentElement.classList.add('js');</script>
-<style>
-.section-block {
-    margin-bottom: 3rem;
-    padding: 1rem 1.5rem;
-    border: 1px solid #e1e4e8;
-    border-left: 5px solid #0066CC;
-    background: #f3f4f6;
-    border-radius: 8px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
-    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecostep</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css?v=mobile-20261016b" />
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+    <style>
+      .section-block {
+        margin-bottom: 3rem;
+        padding: 1rem 1.5rem;
+        border: 1px solid #e1e4e8;
+        border-left: 5px solid #0066cc;
+        background: #f3f4f6;
+        border-radius: 8px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+        transition:
+          background 0.3s,
+          color 0.3s,
+          box-shadow 0.3s;
+      }
 
-.dark-theme .section-block {
-    background: #1f1f1f;
-    border-color: #373737;
-    border-left-color: #4086cc;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.30);
-}
-</style>
-</head>
-<body>
+      .dark-theme .section-block {
+        background: #1f1f1f;
+        border-color: #373737;
+        border-left-color: #4086cc;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+  <body>
     <header>
-        <a href="index.html" class="logo-container">
-            <img src="Logo.png" alt="Logo Ecostep" class="logo-ecostep">
-        </a>
-        <nav>
-            <a href="index.html">Início</a>
-            <a href="store.html">Loja</a>
-            <a href="login.html">Login</a>
-            <button id="toggleTheme" aria-label="Ativar tema escuro">🌙</button>
-            <div class="profile-control">
-                <button id="profileToggle" class="profile-toggle" type="button" aria-label="Abrir perfil e configurações" aria-haspopup="dialog" aria-expanded="false" aria-controls="profilePanel"><span class="profile-avatar" id="profileAvatar" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span></button>
-                <section id="profilePanel" class="profile-panel" role="dialog" aria-label="Perfil e configurações" hidden>
-                    <div class="profile-summary"><span class="profile-avatar profile-avatar-large" id="profilePanelAvatar" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><div><strong id="profileName">Visitante</strong><span id="profileEmail">Entre para ver sua conta</span></div></div>
-                    <a class="profile-edit-link" id="profileEditLink" href="configuracoes.html" hidden>Configurações</a>
-                    <a class="profile-login" id="profileLogin" href="login.html">Entrar na conta</a>
-                    <button class="profile-signout" id="profileSignout" type="button" hidden>Sair da conta</button>
-                </section>
+      <a href="index.html" class="logo-container">
+        <img src="Logo.png" alt="Logo Ecostep" class="logo-ecostep" />
+      </a>
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="store.html">Loja</a>
+        <a href="login.html">Login</a>
+        <button id="toggleTheme" aria-label="Ativar tema escuro">🌙</button>
+        <div class="profile-control">
+          <button
+            id="profileToggle"
+            class="profile-toggle"
+            type="button"
+            aria-label="Abrir perfil e configurações"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="profilePanel"
+          >
+            <span class="profile-avatar" id="profileAvatar" aria-hidden="true"
+              ><svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21a8 8 0 0 1 16 0" /></svg
+            ></span>
+          </button>
+          <section
+            id="profilePanel"
+            class="profile-panel"
+            role="dialog"
+            aria-label="Perfil e configurações"
+            hidden
+          >
+            <div class="profile-summary">
+              <span
+                class="profile-avatar profile-avatar-large"
+                id="profilePanelAvatar"
+                aria-hidden="true"
+                ><svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21a8 8 0 0 1 16 0" /></svg
+              ></span>
+              <div>
+                <strong id="profileName">Visitante</strong
+                ><span id="profileEmail">Entre para ver sua conta</span>
+              </div>
             </div>
-        </nav>
+            <a class="profile-edit-link" id="profileEditLink" href="configuracoes.html" hidden
+              >Configurações</a
+            >
+            <a class="profile-login" id="profileLogin" href="login.html">Entrar na conta</a>
+            <button class="profile-signout" id="profileSignout" type="button" hidden>
+              Sair da conta
+            </button>
+          </section>
+        </div>
+      </nav>
     </header>
 
     <section class="container reveal" id="inicio">
-        <h1>Bem-vindo ao Ecostep</h1>
-        <p>O Ecostep é uma plataforma que busca transformar pequenas atitudes em grandes impactos positivos para o meio ambiente, incentivando hábitos sustentáveis de forma prática e recompensadora no dia a dia.</p>
+      <h1>Bem-vindo ao Ecostep</h1>
+      <p>
+        O Ecostep é uma plataforma que busca transformar pequenas atitudes em grandes impactos
+        positivos para o meio ambiente, incentivando hábitos sustentáveis de forma prática e
+        recompensadora no dia a dia.
+      </p>
     </section>
 
     <section class="container section-block reveal" id="missao">
-        <h1>Missão</h1>
-        <p>Nossa missão é conscientizar e capacitar pessoas para a adoção de práticas sustentáveis em seu cotidiano, utilizando educação ambiental, monitoramento de impacto e sistemas de recompensas para engajar a sociedade em ações alinhadas aos Objetivos de Desenvolvimento Sustentável e à preservação dos recursos naturais.</p>
+      <h1>Missão</h1>
+      <p>
+        Nossa missão é conscientizar e capacitar pessoas para a adoção de práticas sustentáveis em
+        seu cotidiano, utilizando educação ambiental, monitoramento de impacto e sistemas de
+        recompensas para engajar a sociedade em ações alinhadas aos Objetivos de Desenvolvimento
+        Sustentável e à preservação dos recursos naturais.
+      </p>
     </section>
 
     <section class="container section-block reveal" id="visao">
-        <h1>Visão</h1>
-        <p>Queremos ser reconhecidos como a principal plataforma de incentivo a hábitos sustentáveis no Brasil, engajando comunidades e indivíduos por meio de tecnologia, gamificação e educação ambiental para promover mudanças significativas em prol de um planeta mais equilibrado e saudável.</p>
+      <h1>Visão</h1>
+      <p>
+        Queremos ser reconhecidos como a principal plataforma de incentivo a hábitos sustentáveis no
+        Brasil, engajando comunidades e indivíduos por meio de tecnologia, gamificação e educação
+        ambiental para promover mudanças significativas em prol de um planeta mais equilibrado e
+        saudável.
+      </p>
     </section>
 
     <section class="container section-block reveal" id="valores">
-        <h1>Valores</h1>
-        <p>Nossos valores são pautados pela sustentabilidade como guia de todas as ações, transparência em nossas práticas, compromisso firme com a educação ambiental e a conscientização, além de inovação para tornar o cuidado com o meio ambiente acessível e prático, sempre com responsabilidade social e ética.</p>
+      <h1>Valores</h1>
+      <p>
+        Nossos valores são pautados pela sustentabilidade como guia de todas as ações, transparência
+        em nossas práticas, compromisso firme com a educação ambiental e a conscientização, além de
+        inovação para tornar o cuidado com o meio ambiente acessível e prático, sempre com
+        responsabilidade social e ética.
+      </p>
     </section>
 
-    <footer>
-        © Ecostep 2025 - v0.1
-    </footer>
+    <footer>© Ecostep 2025 - v0.1</footer>
 
     <script src="script.js"></script>
     <script type="module" src="profile-menu.js"></script>
-</body>
+  </body>
 </html>
-

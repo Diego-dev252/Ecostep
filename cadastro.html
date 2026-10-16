@@ -1,88 +1,147 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Cadastro - Ecostep</title>
-  <link rel="stylesheet" href="style.css?v=mobile-20261016b">
-  <script>document.documentElement.classList.add('js');</script>
-</head>
-<body>
-  <header><a class="brand" href="index.html">Ecostep</a><nav aria-label="Navegação principal">
-    <a href="index.html">Início</a><a href="store.html">Loja</a><a href="login.html">Login</a>
-    <button id="toggleTheme" type="button" aria-label="Ativar tema escuro">🌙</button>
-    <div class="profile-control">
-      <button id="profileToggle" class="profile-toggle" type="button" aria-label="Abrir perfil e configurações" aria-haspopup="dialog" aria-expanded="false" aria-controls="profilePanel"><span class="profile-avatar" id="profileAvatar" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span></button>
-      <section id="profilePanel" class="profile-panel" role="dialog" aria-label="Perfil e configurações" hidden>
-        <div class="profile-summary"><span class="profile-avatar profile-avatar-large" id="profilePanelAvatar" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><div><strong id="profileName">Visitante</strong><span id="profileEmail">Entre para ver sua conta</span></div></div>
-        <a class="profile-edit-link" id="profileEditLink" href="configuracoes.html" hidden>Configurações</a>
-        <a class="profile-login" id="profileLogin" href="login.html">Entrar na conta</a>
-        <button class="profile-signout" id="profileSignout" type="button" hidden>Sair da conta</button>
-      </section>
-    </div>
-  </nav></header>
-  <main class="card auth-card">
-    <p class="auth-eyebrow">SUA JORNADA COMEÇA AQUI</p>
-    <h1>Cadastro</h1>
-    <p class="auth-intro">Crie sua conta e venha fazer parte de uma comunidade mais sustentável.</p>
-    <form id="formCadastro" novalidate>
-      <label for="nome">Nome</label><input type="text" id="nome" name="nome" autocomplete="name" required maxlength="100">
-      <label for="email">E-mail</label><input type="email" id="email" name="email" autocomplete="email" required>
-      <label for="senha">Senha</label><input type="password" id="senha" name="senha" autocomplete="new-password" required minlength="6">
-      <button type="submit">Criar conta</button>
-    </form>
-    <p id="mensagem" role="status" aria-live="polite"></p>
-    <p class="auth-switch">Já tem uma conta na Ecostep? <a href="login.html">Entre</a></p>
-  </main>
-  <footer>© Ecostep 2025 - v0.1</footer>
-  <script src="script.js"></script>
-  <script type="module" src="profile-menu.js"></script>
-  <script type="module">
-    import { supabase } from './supabase.js';
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Cadastro - Ecostep</title>
+    <link rel="stylesheet" href="style.css?v=mobile-20261016b" />
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="index.html">Ecostep</a>
+      <nav aria-label="Navegação principal">
+        <a href="index.html">Início</a><a href="store.html">Loja</a><a href="login.html">Login</a>
+        <button id="toggleTheme" type="button" aria-label="Ativar tema escuro">🌙</button>
+        <div class="profile-control">
+          <button
+            id="profileToggle"
+            class="profile-toggle"
+            type="button"
+            aria-label="Abrir perfil e configurações"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="profilePanel"
+          >
+            <span class="profile-avatar" id="profileAvatar" aria-hidden="true"
+              ><svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21a8 8 0 0 1 16 0" /></svg
+            ></span>
+          </button>
+          <section
+            id="profilePanel"
+            class="profile-panel"
+            role="dialog"
+            aria-label="Perfil e configurações"
+            hidden
+          >
+            <div class="profile-summary">
+              <span
+                class="profile-avatar profile-avatar-large"
+                id="profilePanelAvatar"
+                aria-hidden="true"
+                ><svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21a8 8 0 0 1 16 0" /></svg
+              ></span>
+              <div>
+                <strong id="profileName">Visitante</strong
+                ><span id="profileEmail">Entre para ver sua conta</span>
+              </div>
+            </div>
+            <a class="profile-edit-link" id="profileEditLink" href="configuracoes.html" hidden
+              >Configurações</a
+            >
+            <a class="profile-login" id="profileLogin" href="login.html">Entrar na conta</a>
+            <button class="profile-signout" id="profileSignout" type="button" hidden>
+              Sair da conta
+            </button>
+          </section>
+        </div>
+      </nav>
+    </header>
+    <main class="card auth-card">
+      <p class="auth-eyebrow">SUA JORNADA COMEÇA AQUI</p>
+      <h1>Cadastro</h1>
+      <p class="auth-intro">
+        Crie sua conta e venha fazer parte de uma comunidade mais sustentável.
+      </p>
+      <form id="formCadastro" novalidate>
+        <label for="nome">Nome</label
+        ><input type="text" id="nome" name="nome" autocomplete="name" required maxlength="100" />
+        <label for="email">E-mail</label
+        ><input type="email" id="email" name="email" autocomplete="email" required />
+        <label for="senha">Senha</label
+        ><input
+          type="password"
+          id="senha"
+          name="senha"
+          autocomplete="new-password"
+          required
+          minlength="6"
+        />
+        <button type="submit">Criar conta</button>
+      </form>
+      <p id="mensagem" role="status" aria-live="polite"></p>
+      <p class="auth-switch">Já tem uma conta na Ecostep? <a href="login.html">Entre</a></p>
+    </main>
+    <footer>© Ecostep 2025 - v0.1</footer>
+    <script src="script.js"></script>
+    <script type="module" src="profile-menu.js"></script>
+    <script type="module">
+      import { supabase } from './supabase.js';
 
-    const form = document.getElementById('formCadastro');
-    const message = document.getElementById('mensagem');
-    const submit = form.querySelector('button[type="submit"]');
+      const form = document.getElementById('formCadastro');
+      const message = document.getElementById('mensagem');
+      const submit = form.querySelector('button[type="submit"]');
 
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      if (!form.reportValidity()) return;
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
 
-      const nome = document.getElementById('nome').value.trim();
-      const email = document.getElementById('email').value.trim();
-      // Não remova espaços da senha: eles podem fazer parte dela.
-      const password = document.getElementById('senha').value;
-      submit.disabled = true;
-      message.textContent = 'Criando sua conta…';
+        const nome = document.getElementById('nome').value.trim();
+        const email = document.getElementById('email').value.trim();
+        // Não remova espaços da senha: eles podem fazer parte dela.
+        const password = document.getElementById('senha').value;
+        submit.disabled = true;
+        message.textContent = 'Criando sua conta…';
 
-      try {
-        const { data, error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: { data: { nome } }
-        });
+        try {
+          const { data, error } = await supabase.auth.signUp({
+            email,
+            password,
+            options: { data: { nome } },
+          });
 
-        if (error) throw error;
+          if (error) throw error;
 
-        if (data.session) {
-          message.textContent = 'Conta criada. Redirecionando…';
-          window.location.assign('inicio.html');
-          return;
+          if (data.session) {
+            message.textContent = 'Conta criada. Redirecionando…';
+            window.location.assign('inicio.html');
+            return;
+          }
+
+          message.textContent =
+            'Cadastro iniciado. Confira seu e-mail para confirmar a conta e depois entre pelo login.';
+          form.reset();
+        } catch (error) {
+          console.error('Falha no cadastro:', error);
+          message.textContent =
+            error?.message ||
+            'Não foi possível concluir o cadastro. Verifique sua conexão e tente novamente.';
+        } finally {
+          submit.disabled = false;
         }
+      });
 
-        message.textContent = 'Cadastro iniciado. Confira seu e-mail para confirmar a conta e depois entre pelo login.';
-        form.reset();
-      } catch (error) {
-        console.error('Falha no cadastro:', error);
-        message.textContent = error?.message || 'Não foi possível concluir o cadastro. Verifique sua conexão e tente novamente.';
-      } finally {
-        submit.disabled = false;
-      }
-    });
-
-    const { data: { session } } = await supabase.auth.getSession();
-    if (session) window.location.replace('inicio.html');
-  </script>
-</body>
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      if (session) window.location.replace('inicio.html');
+    </script>
+  </body>
 </html>

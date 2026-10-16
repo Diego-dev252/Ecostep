@@ -19,7 +19,8 @@ if (trigger && panel) {
   });
 
   document.addEventListener('click', (event) => {
-    if (!panel.hidden && !panel.contains(event.target) && !trigger.contains(event.target)) closePanel();
+    if (!panel.hidden && !panel.contains(event.target) && !trigger.contains(event.target))
+      closePanel();
   });
 
   document.addEventListener('keydown', (event) => {
@@ -31,7 +32,10 @@ if (trigger && panel) {
 }
 
 try {
-  const { data: { user }, error } = await supabase.auth.getUser();
+  const {
+    data: { user },
+    error,
+  } = await supabase.auth.getUser();
   if (error) throw error;
 
   if (user) {
