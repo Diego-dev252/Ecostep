@@ -1,42 +1,41 @@
-// Animação de entrada: revela os elementos com a classe "reveal"
-// conforme eles entram na viewport.
+// Reveal elements as they enter the viewport.
 (function () {
-    const elementos = document.querySelectorAll('.reveal');
+  const elements = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach((element) => element.classList.add('show'));
+    return;
+  }
 
-    if (!('IntersectionObserver' in window)) {
-        elementos.forEach(el => el.classList.add('show'));
-        return;
-    }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    elementos.forEach(el => observer.observe(el));
+  elements.forEach((element) => observer.observe(element));
 })();
 
-// Tema claro/escuro persistente
+// Persist the selected color theme.
 (function () {
-    const toggleButton = document.getElementById('toggleTheme');
-    if (!toggleButton) return;
+  const button = document.getElementById('toggleTheme');
+  if (!button) return;
 
-    function aplicarTema(tema) {
-        const escuro = tema === 'dark';
-        document.body.classList.toggle('dark-theme', escuro);
-        toggleButton.textContent = escuro ? '☀️' : '🌙';
-        toggleButton.setAttribute('aria-label', escuro ? 'Ativar tema claro' : 'Ativar tema escuro');
-    }
+  function applyTheme(theme) {
+    const dark = theme === 'dark';
+    document.body.classList.toggle('dark-theme', dark);
+    button.textContent = dark ? '☀️' : '🌙';
+    button.setAttribute('aria-label', dark ? 'Ativar tema claro' : 'Ativar tema escuro');
+  }
 
-    aplicarTema(localStorage.getItem('theme') === 'dark' ? 'dark' : 'light');
+  try { applyTheme(localStorage.getItem('theme') === 'dark' ? 'dark' : 'light'); }
+  catch { applyTheme('light'); }
 
-    toggleButton.addEventListener('click', function () {
-        const novoTema = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
-        aplicarTema(novoTema);
-        localStorage.setItem('theme', novoTema);
-    });
+  button.addEventListener('click', () => {
+    const next = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem('theme', next); } catch { /* Theme stays active for this page. */ }
+  });
 })();

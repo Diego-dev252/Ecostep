@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Página não encontrada - Ecostep</title>
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="index.html">Ecostep</a>
+    <nav aria-label="Navegação principal">
+      <a href="index.html">Início</a><a href="store.html">Loja</a><a href="login.html">Login</a>
+      <button id="toggleTheme" type="button" aria-label="Ativar tema escuro">🌙</button>
+      <div class="profile-control">
+        <button id="profileToggle" class="profile-toggle" type="button" aria-label="Abrir perfil e configurações" aria-haspopup="dialog" aria-expanded="false" aria-controls="profilePanel"><span class="profile-avatar" id="profileAvatar" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span></button>
+        <section id="profilePanel" class="profile-panel" role="dialog" aria-label="Perfil e configurações" hidden>
+          <div class="profile-summary"><span class="profile-avatar profile-avatar-large" id="profilePanelAvatar" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><div><strong id="profileName">Visitante</strong><span id="profileEmail">Entre para ver sua conta</span></div></div>
+          <a class="profile-edit-link" id="profileEditLink" href="configuracoes.html" hidden>Configurações</a>
+          <a class="profile-login" id="profileLogin" href="login.html">Entrar na conta</a>
+          <button class="profile-signout" id="profileSignout" type="button" hidden>Sair da conta</button>
+        </section>
+      </div>
+    </nav>
+  </header>
+  <main class="not-found-card" aria-labelledby="not-found-title">
+    <p class="not-found-code" aria-hidden="true">404</p>
+    <p class="auth-eyebrow">CAMINHO NÃO ENCONTRADO</p>
+    <h1 id="not-found-title">Ops! Essa página saiu da trilha.</h1>
+    <p class="not-found-copy">O endereço pode estar incorreto ou a página foi movida. Que tal voltar ao início e continuar explorando?</p>
+    <div class="not-found-actions">
+      <a class="not-found-primary" href="index.html">Voltar ao início</a>
+      <a class="not-found-secondary" href="store.html">Explorar a loja</a>
+    </div>
+  </main>
+  <footer>© Ecostep 2025 - v0.1</footer>
+  <script src="script.js"></script>
+  <script type="module" src="profile-menu.js"></script>
+</body>
+</html>
