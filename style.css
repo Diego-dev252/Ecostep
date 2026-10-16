@@ -1081,7 +1081,7 @@ footer {
 @media (max-width: 560px) {
     .settings-fields { grid-template-columns: 1fr; }
     .settings-toolbar { padding: 0.75rem; }
-    .settings-content { padding-bottom: 1.5rem; }
+    .settings-content { padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px)); }
     .settings-quick { margin: 0.25rem 0 1.5rem; }
     .settings-account-card { align-items: flex-start; padding: 0.9rem; }
     .settings-avatar { flex-basis: 50px; width: 50px; height: 50px; }
