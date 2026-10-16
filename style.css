@@ -1,12 +1,12 @@
 /* ======== Base ======== */
-html, body {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
+html { min-height: 100%; }
 
 body {
+    min-height: 100vh;
+    min-height: 100dvh;
     margin: 0;
+    display: flex;
+    flex-direction: column;
     font-family: 'Inter', sans-serif;
     background: #fff;
     color: #333;
@@ -542,6 +542,7 @@ main {
 
 /* ======== Rodapé ======== */
 footer {
+    margin-top: auto;
     background: #d9d9d9;
     text-align: center;
     padding: 1rem;
@@ -1088,5 +1089,172 @@ footer {
     .settings-form-actions { justify-content: stretch; }
     .settings-form-actions button,
     .settings-form-actions a { flex: 1; min-width: 0; }
+}
+
+/* ======== Ajustes para celulares ======== */
+@media (max-width: 600px) {
+    html, body { min-width: 320px; }
+
+    header {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 0.35rem;
+        padding: 0.6rem 0.75rem;
+    }
+
+    header > .logo-container {
+        width: 128px;
+        height: 70px;
+        overflow: hidden;
+        justify-content: center;
+    }
+
+    header > .logo-container .logo-ecostep {
+        flex: 0 0 128px;
+        width: 128px;
+        height: 128px;
+        max-height: none;
+    }
+
+    header > .brand {
+        justify-self: center;
+        font-size: 1.25rem;
+    }
+
+    header > nav {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        margin: 0;
+    }
+
+    header > nav a {
+        display: inline-flex;
+        min-height: 40px;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0.35rem 0.45rem;
+        font-size: 0.92rem;
+    }
+
+    #toggleTheme,
+    .profile-toggle {
+        width: 40px;
+        height: 40px;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    .profile-control { margin: 0; }
+    .profile-panel { right: 0; width: min(320px, calc(100vw - 1.5rem)); }
+
+    .container {
+        width: auto;
+        margin: 1.25rem auto;
+        padding: 0 1rem;
+    }
+
+    .container h1 { font-size: clamp(1.55rem, 7vw, 1.9rem); }
+    .container p { font-size: 1rem; line-height: 1.65; text-align: left; }
+
+    .section-block {
+        margin-bottom: 1rem;
+        padding: 0.95rem 1rem;
+        border-left-width: 4px;
+        border-radius: 8px;
+    }
+
+    .auth-card {
+        width: calc(100% - 1.5rem);
+        margin: 1rem auto;
+        padding: 1.35rem 1.1rem;
+        border-radius: 10px;
+    }
+
+    .auth-card input,
+    .settings-field input { min-height: 46px; font-size: 16px; }
+    .auth-card form { gap: 0.5rem; }
+    .auth-card .auth-intro { margin-bottom: 1rem; }
+
+    .welcome-card {
+        width: calc(100% - 1.5rem);
+        margin: 0.75rem auto;
+        padding: 1.25rem 1.1rem;
+        border-radius: 10px;
+    }
+
+    .welcome-card h1 { font-size: 1.7rem; }
+    .welcome-lead, .welcome-copy { font-size: 1rem; line-height: 1.6; }
+    .account-status { padding: 0.85rem; }
+
+    .products-grid { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+    .product-card { padding: 1rem; }
+    .product-card img { max-height: 150px; }
+    .product-card .btn-comprar { display: flex; min-height: 44px; align-items: center; justify-content: center; }
+
+    footer { padding: 0.85rem 1rem; }
+}
+
+@media (max-width: 380px) {
+    header > nav { column-gap: 0.1rem; }
+    header > nav a { padding-inline: 0.3rem; font-size: 0.86rem; }
+    .settings-sidebar { padding-inline: 0.75rem; }
+    .settings-nav-link { padding-inline: 0.55rem; }
+    .settings-toolbar { gap: 0.5rem; padding-inline: 0.65rem; }
+    .settings-theme-toggle { flex-basis: 38px; width: 38px; height: 38px; }
+}
+
+@media (max-width: 800px) {
+    .settings-page {
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        overflow: visible;
+    }
+
+    .settings-shell {
+        display: block;
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
+    .settings-sidebar {
+        position: static;
+        gap: 0.65rem;
+        padding: 0.85rem 1rem;
+    }
+
+    .settings-sidebar h1 { margin: 0; font-size: 1.3rem; }
+    .settings-nav { flex-wrap: nowrap; padding-bottom: 0.1rem; }
+    .settings-nav-link { min-height: 42px; white-space: nowrap; }
+
+    .settings-sidebar-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0.35rem;
+    }
+
+    .settings-sidebar-bottom a,
+    .settings-sidebar-bottom button { min-height: 40px; }
+
+    .settings-main { height: auto; overflow: visible; }
+    .settings-toolbar { position: sticky; top: 0; }
+    .settings-content { width: calc(100% - 1.5rem); }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .card button:hover,
+    .product-card:hover,
+    .product-card button:hover,
+    .product-card .btn-comprar:hover,
+    .welcome-primary:hover,
+    .not-found-primary:hover { transform: none; }
 }
 
